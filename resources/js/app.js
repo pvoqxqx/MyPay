@@ -15,7 +15,7 @@ import 'vuetify/dist/vuetify.min.css'
 import store from "./store"
 
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 Vue.use(Vuetify)
 
 const router = new VueRouter(routes)

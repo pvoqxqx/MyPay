@@ -18,7 +18,6 @@
                 </v-btn>
             </div>
 
-
             <v-card>
                 <v-tabs grow v-model="active_tab">
                     <v-tab

@@ -31,24 +31,34 @@
                             {{ game.name | uppercase }}
                         </v-card-title>
 
-                        <v-card-actions
-                            style="justify-content: center;"
+                        <v-card
+                            class="mx-auto"
+                            max-width="500"
                         >
-                            <div v-for="service in game.services">
-                                <router-link
-                                    class="link"
-                                    :to="{path: `/${game.slug}/${service.service_name}`}"
+                            <v-slide-group
+                                multiple
+                                show-arrows
+                            >
+                                <v-slide-item
+                                    v-for="service in game.services"
+                                    :key="service.id"
+                                    v-slot="{ active, toggle }"
                                 >
-                                    <v-btn
-                                        class="m-1 text-decoration-none"
-                                        outlined
-                                        target="_blank"
+                                    <router-link
+                                        class="link"
+                                        :to="{path: `/${game.slug}/${service.service_name}`}"
                                     >
-                                        {{ service.service_name | uppercase }}
-                                    </v-btn>
-                                </router-link>
-                            </div>
-                        </v-card-actions>
+                                        <v-btn
+                                            class="m-1 text-decoration-none"
+                                            outlined
+                                            target="_blank"
+                                        >
+                                            {{ service.service_name | uppercase }}
+                                        </v-btn>
+                                    </router-link>
+                                </v-slide-item>
+                            </v-slide-group>
+                        </v-card>
                     </v-card>
                 </v-col>
             </v-row>

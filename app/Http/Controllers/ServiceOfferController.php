@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\service_offer;
+use App\Models\serviceOffer;
 use Illuminate\Http\Request;
 
 class ServiceOfferController extends Controller
@@ -41,10 +41,10 @@ class ServiceOfferController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\service_offer  $service_offer
+     * @param  \App\Models\serviceOffer  $service_offer
      * @return \Illuminate\Http\Response
      */
-    public function show(service_offer $service_offer)
+    public function show(serviceOffer $service_offer)
     {
         //
     }
@@ -52,10 +52,10 @@ class ServiceOfferController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\service_offer  $service_offer
+     * @param  \App\Models\serviceOffer  $service_offer
      * @return \Illuminate\Http\Response
      */
-    public function edit(service_offer $service_offer)
+    public function edit(serviceOffer $service_offer)
     {
         //
     }
@@ -64,10 +64,10 @@ class ServiceOfferController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\service_offer  $service_offer
+     * @param  \App\Models\serviceOffer  $service_offer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, service_offer $service_offer)
+    public function update(Request $request, serviceOffer $service_offer)
     {
         //
     }
@@ -75,10 +75,10 @@ class ServiceOfferController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\service_offer  $service_offer
+     * @param  \App\Models\serviceOffer  $service_offer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(service_offer $service_offer)
+    public function destroy(serviceOffer $service_offer)
     {
         //
     }

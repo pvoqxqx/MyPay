@@ -2,7 +2,8 @@
 
 namespace App\Http\Services;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\Games;
+use App\Models\GameService;
 
 class GamesWithServicesGettingService
 {
@@ -11,20 +12,17 @@ class GamesWithServicesGettingService
      */
     public function getGamesWithServices(): ?array
     {
-        $games = DB::table('games')->get();
+        $games = Games::all();
 
-        foreach($games as $game) {
-             $game_services = DB::table('game_services')
-                ->select('id', 'game_id', 'service_name')
-                ->where('game_id', $game->id)
-                ->get();
+        foreach ($games as $game) {
+            $game_services = GameService::where('game_id', $game->id)->get();
 
             $gameWithServices[] = [
                 'id' => $game->id,
                 'name' => $game->name,
                 'slug' => $game->slug,
                 'icon_path' => $game->icon_path,
-                'services' => $game_services,
+                'services' => $game_services
             ];
         }
 

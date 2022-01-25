@@ -2,8 +2,8 @@
 
 namespace App\Http\Services;
 
+use App\Models\Games;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 
 class GamesGettingService
 {
@@ -12,6 +12,6 @@ class GamesGettingService
      */
     public function show(): Collection
     {
-        return DB::table('games')->get();
+        return Games::all();
     }
 }

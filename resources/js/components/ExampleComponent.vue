@@ -1,53 +1,23 @@
 <template>
-    <v-app>
-        <v-card>
-            <v-tabs
-                v-model="tab"
-                background-color="deep-purple accent-4"
-                centered
-                dark
-            >
-                <v-tabs-slider></v-tabs-slider>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Example Component</div>
 
-                <v-tab href="#subscribe">
-                    Subscribe
-                </v-tab>
-
-                <v-tab href="#contact">
-                    Contact
-                </v-tab>
-            </v-tabs>
-
-            <v-tabs-items v-model="tab">
-                <v-tab-item :key="1" value="subscribe">
-                    <v-card flat>
-                        <v-card-text>subscribe niggers</v-card-text>
-                    </v-card>
-                </v-tab-item>
-                <v-tab-item :key="2" value="contact">
-                    <v-card flat>
-                        <v-card-text>contact to me brozzers</v-card-text>
-                    </v-card>
-                </v-tab-item>
-            </v-tabs-items>
-        </v-card>
-    </v-app>
+                    <div class="card-body">
+                        I'm an example component.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "ExampleComponent",
-        data() {
-            return {
-                tab: "subcribe"
-            }
-        },
         mounted() {
             console.log('Component mounted.')
         }
     }
 </script>
-
-<style>
-
-</style>

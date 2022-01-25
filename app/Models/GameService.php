@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class game_service
+ * Class gameService
  * @package App\Models
  * @property int $id
  * @property int $game_id
  * @property string $service_name
  */
-class game_service extends Model
+class GameService extends Model
 {
     use HasFactory;
 

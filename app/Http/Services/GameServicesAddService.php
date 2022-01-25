@@ -2,7 +2,7 @@
 
 namespace App\Http\Services;
 
-use App\Models\game_service;
+use App\Models\gameService;
 
 class GameServicesAddService
 {
@@ -13,7 +13,7 @@ class GameServicesAddService
      */
     public function addGameService(int $gameId, string $serviceName)
     {
-        $newGameService = new game_service();
+        $newGameService = new gameService();
 
         $newGameService->game_id = $gameId;
         $newGameService->service_name = $serviceName;

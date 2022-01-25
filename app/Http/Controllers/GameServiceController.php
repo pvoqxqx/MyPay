@@ -23,7 +23,8 @@ class GameServiceController extends Controller
     public function __construct(
         GameServicesGettingService $gameServiceGettingService,
         GameServicesAddService     $gameServicesAddService
-    ) {
+    )
+    {
         $this->gameServicesGettingService = $gameServiceGettingService;
         $this->gameServicesAddService = $gameServicesAddService;
     }

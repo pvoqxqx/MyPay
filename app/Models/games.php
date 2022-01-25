@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $slug
  * @property string $icon_path
  */
-class games extends Model
+class Games extends Model
 {
     use HasFactory;
 
@@ -25,4 +25,9 @@ class games extends Model
         'slug',
         'icon_path',
     ];
+
+    public function games()
+    {
+
+    }
 }

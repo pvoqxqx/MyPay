@@ -3,31 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\GameAddService;
-use App\Http\Services\GamesGettingService;
 use App\Http\Services\GamesWithServicesGettingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 
 class GamesController extends Controller
 {
-    private GamesGettingService $gamesGettingService;
     private GameAddService $gameAddService;
     private GamesWithServicesGettingService $gamesWithServicesGettingService;
 
     /**
      * @param GamesWithServicesGettingService $gamesWithServicesGettingService
-     * @param GamesGettingService $gamesGettingService
      * @param GameAddService $gameAddService
      */
     public function __construct(
         GamesWithServicesGettingService $gamesWithServicesGettingService,
-        GamesGettingService             $gamesGettingService,
         GameAddService                  $gameAddService
     )
     {
         $this->gamesWithServicesGettingService = $gamesWithServicesGettingService;
-        $this->gamesGettingService = $gamesGettingService;
         $this->gameAddService = $gameAddService;
     }
 
@@ -37,14 +31,6 @@ class GamesController extends Controller
     public function showAllGamesWithService(): array
     {
         return $this->gamesWithServicesGettingService->getGamesWithServices();
-    }
-
-    /**
-     * @return Collection
-     */
-    public function showAllGames(): Collection
-    {
-        return $this->gamesGettingService->show();
     }
 
     /**
@@ -59,6 +45,7 @@ class GamesController extends Controller
             'icon_path' => 'required'
         ]);
 
+        // Подготавливаем данные для добавления игры
         $name = $request->name;
         $slug = $request->slug;
         $icon_path = $request->icon_path;
