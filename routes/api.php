@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Games API
+// Game API
 Route::get('/games_with_services', [App\Http\Controllers\GamesController::class, 'showAllGamesWithService']);
 Route::get('/games', [App\Http\Controllers\GamesController::class, 'showAllGames']);
 Route::post('/games', [App\Http\Controllers\GamesController::class, 'addGame']);
 
-// Games Service API
-Route::get('/services/{game_slug}', [App\Http\Controllers\GameServiceController::class, 'showGameServices']);
+// Game Service API
+Route::get('/services/{game:slug}', [App\Http\Controllers\GameServiceController::class, 'showGameServices']);
 Route::post('/{game_id}/services', [App\Http\Controllers\GameServiceController::class, 'addGameServices']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

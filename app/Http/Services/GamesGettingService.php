@@ -2,7 +2,7 @@
 
 namespace App\Http\Services;
 
-use App\Models\Games;
+use App\Models\Game;
 use Illuminate\Support\Collection;
 
 class GamesGettingService
@@ -12,6 +12,6 @@ class GamesGettingService
      */
     public function show(): Collection
     {
-        return Games::all();
+        return Game::all();
     }
 }

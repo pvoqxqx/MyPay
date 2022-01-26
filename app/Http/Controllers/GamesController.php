@@ -6,6 +6,7 @@ use App\Http\Services\GameAddService;
 use App\Http\Services\GamesWithServicesGettingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class GamesController extends Controller
 {
@@ -26,9 +27,9 @@ class GamesController extends Controller
     }
 
     /**
-     * @return array
+     * @return Collection
      */
-    public function showAllGamesWithService(): array
+    public function showAllGamesWithService(): Collection
     {
         return $this->gamesWithServicesGettingService->getGamesWithServices();
     }
@@ -52,6 +53,6 @@ class GamesController extends Controller
 
         $this->gameAddService->addGame($name, $slug, $icon_path);
 
-        return back()->with('success', 'Games added successfully.');
+        return back()->with('success', 'Game added successfully.');
     }
 }

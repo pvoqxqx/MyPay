@@ -2,30 +2,26 @@
 
 namespace App\Http\Services;
 
-use App\Models\Games;
-use App\Models\GameService;
+use App\Models\Game;
+use Illuminate\Support\Collection;
 
 class GamesWithServicesGettingService
 {
     /**
-     * @return array|null
+     * @return Collection
      */
-    public function getGamesWithServices(): ?array
+    public function getGamesWithServices(): Collection
     {
-        $games = Games::all();
-
-        foreach ($games as $game) {
-            $game_services = GameService::where('game_id', $game->id)->get();
-
+        foreach (Game::all() as $game) {
+            // TODO заменить на коллекцию
             $gameWithServices[] = [
                 'id' => $game->id,
                 'name' => $game->name,
                 'slug' => $game->slug,
                 'icon_path' => $game->icon_path,
-                'services' => $game_services
+                'services' => $game->gameServices,
             ];
         }
-
-        return $gameWithServices;
+        return collect($gameWithServices);
     }
 }

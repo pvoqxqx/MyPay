@@ -24,4 +24,9 @@ class GameService extends Model
         'game_slug',
         'service_name',
     ];
+
+    public function game()
+    {
+        return $this->belongsTo(Game::class);
+    }
 }

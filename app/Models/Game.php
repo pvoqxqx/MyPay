@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $slug
  * @property string $icon_path
  */
-class Games extends Model
+class Game extends Model
 {
     use HasFactory;
 
@@ -25,9 +25,18 @@ class Games extends Model
         'slug',
         'icon_path',
     ];
+    /**
+     * @var mixed
+     */
+    private $gameServices;
 
-    public function games()
+    public function gameServices()
     {
+        return $this->hasMany('App\Models\GameService');
+    }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

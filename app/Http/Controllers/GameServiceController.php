@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\GameServicesAddService;
-use App\Http\Services\GameServicesGettingService;
+use App\Models\Game;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -11,31 +11,27 @@ use Illuminate\Support\Collection;
 class GameServiceController extends Controller
 {
     /**
-     * @var GameServicesGettingService
+     * @var GameServicesAddService
      */
-    private GameServicesGettingService $gameServicesGettingService;
     private GameServicesAddService $gameServicesAddService;
 
     /**
-     * @param GameServicesGettingService $gameServiceGettingService
      * @param GameServicesAddService $gameServicesAddService
      */
     public function __construct(
-        GameServicesGettingService $gameServiceGettingService,
-        GameServicesAddService     $gameServicesAddService
+        GameServicesAddService $gameServicesAddService
     )
     {
-        $this->gameServicesGettingService = $gameServiceGettingService;
         $this->gameServicesAddService = $gameServicesAddService;
     }
 
     /**
-     * @param string $game_slug
+     * @param Game $game
      * @return Collection
      */
-    public function showGameServices(string $game_slug): Collection
+    public function showGameServices(Game $game): Collection
     {
-        return $this->gameServicesGettingService->showGameServices($game_slug);
+        return $game->gameServices;
     }
 
     /**
